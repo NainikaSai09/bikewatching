@@ -29,18 +29,7 @@ body {
 }
 
 #map svg circle {
-  --color-departures: steelblue;
-  --color-arrivals: darkorange;
-
-  --color: color-mix(
-    in oklch,
-    var(--color-departures)
-      calc(100% * var(--departure-ratio)),
-    var(--color-arrivals)
-  );
-
   fill: var(--color);
-
   fill-opacity: 0.6;
   stroke: white;
   stroke-width: 1;
@@ -54,6 +43,8 @@ header {
   padding: 1em;
 }
 
+
+
 label {
   margin-left: auto;
 }
@@ -66,4 +57,46 @@ em {
 em {
   color: gray;
   font-style: italic;
+}
+
+#map svg circle,
+.legend > div {
+  --color-departures: steelblue;
+  --color-arrivals: darkorange;
+
+  --color: color-mix(
+    in oklch,
+    var(--color-departures)
+      calc(100% * var(--departure-ratio)),
+    var(--color-arrivals)
+  );
+}
+
+.legend {
+  display: flex;
+  align-items: center;
+  gap: 1.5em;
+  margin-block: 1em;
+  font-size: 0.9em;
+}
+
+.legend::before {
+  content: "LEGEND:";
+  font-weight: bold;
+  color: gray;
+}
+
+.legend > div {
+  display: flex;
+  align-items: center;
+  gap: 0.4em;
+}
+
+.legend > div::before {
+  content: "";
+  width: 1em;
+  height: 1em;
+  border-radius: 50%;
+  background: var(--color);
+  display: inline-block;
 }
