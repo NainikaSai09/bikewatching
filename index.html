@@ -4,14 +4,46 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Bikewatching</title>
+
+    <link rel="stylesheet" href="global.css" />
+    <link rel="stylesheet" href="map.css" />
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+    <link
+      href="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.css"
+      rel="stylesheet"
+    />
+
+
+    <script src="map.js" type="module"></script>
+
   </head>
   <body>
     <h1>🚴🏼‍♀️ Bikewatching</h1>
+
+    <label>
+      Filter by time:
+
+      <input
+        type="range"
+        id="time-slider"
+        min="-1"
+        max="1440"
+        value="-1"
+      />
+
+      <time id="selected-time"></time>
+
+      <em id="any-time">(any time)</em>
+    </label>
 
     <p>
     This project visualizes BlueBike traffic patterns and bike lanes
     in the Boston and Cambridge area using Mapbox and D3.
   </p>
-  
+
+  <div id="map">
+    <svg></svg>
+  </div>
+
   </body>
 </html>
